@@ -12,4 +12,4 @@ The goal of this project was to build a html webpage that would display the resu
 
 -A function was created that filtered results based on the form input and returned the corresponding results on the page.
 
-![Screenshot1](UFO-Level_1/UFO-Level_1_Screenshot.png
+![Screenshot1](UFO-level_1/UFO-Level_1_Screenshot.png)
