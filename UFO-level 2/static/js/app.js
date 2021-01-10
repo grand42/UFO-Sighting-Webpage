@@ -39,17 +39,27 @@ function runEnter() {
     // Get the value property of the input element
     var dateinputValue = date_control.property("value");
     var cityinputValue = city_control.property("value").toLowerCase();
-    var stateinputValue = state_control.property("value");
+    var stateinputValue = state_control.property("value").toLowerCase();
 
     // Filter the data by the value
+    var filteredDate= tableData.filter(tableData => tableData.datetime === dateinputValue);
+    var filteredcity= tableData.filter(tableData => tableData.city === cityinputValue);
+    var filteredstate= tableData.filter(tableData => tableData.state === dateinputValue);
 
    // var filteredData = tableData.filter(tableData => tableData.datetime === dateinputValue);
-    var filteredData = tableData.filter(tableData => tableData.city === cityinputValue && tableData.datetime === dateinputValue );
-
-    if(filteredData.length == 0) {
+    var filteredData = tableData.filter(tableData => tableData.city === cityinputValue && (tableData.datetime === dateinputValue) && (tableData.state === stateinputValue));
+  // filter city and state
+    var citystate = tableData.filter(tableData => tableData.city === cityinputValue && (tableData.state === stateinputValue));
+    // date and city
+    var citydate = tableData.filter(tableData => tableData.city === cityinputValue && (tableData.datetime === dateinputValue));
+     // date and state
+    var ar statedate = tableData.filter(tableData => tableData.state === stateinputValue && (tableData.datetime === dateinputValue));
+    
+    // If statements for returning form searches
+    if((filteredData.length == 0) && (filteredDate.length ==0) && (filteredcity.length ==0) && (filteredstate.length ==0)) {
         tbody.append("tr").append("td").text("No UFO sightings found");
     }
-    else{
+    else if (filteredData.length !== 0){
     filteredData.forEach((Sighting) => {
         var row = tbody.append("tr");
         Object.entries(Sighting).forEach(([key, value]) => {
@@ -57,4 +67,23 @@ function runEnter() {
           cell.text(value);
         });
       });
-    }};
+    }
+    else if (citystate.length !== 0 && filteredDate.length == 0){
+      citystate.forEach((Sighting) => {
+          var row = tbody.append("tr");
+          Object.entries(Sighting).forEach(([key, value]) => {
+            var cell = row.append("td");
+            cell.text(value);
+          });
+        });
+      }
+      else if (citydate.length !== 0 && filteredstate.length==0){
+        citydate.forEach((Sighting) => {
+            var row = tbody.append("tr");
+            Object.entries(Sighting).forEach(([key, value]) => {
+              var cell = row.append("td");
+              cell.text(value);
+            });
+          });
+        }
+  };
