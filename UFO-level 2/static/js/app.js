@@ -8,7 +8,7 @@ var button = d3.select("#filter-btn");
 var date_control = d3.select("#datetime");
 var city_control = d3.select("#city");
 var state_control = d3.select("#state");
-var form = d3.select("#form")
+var form = d3.select("#form");
 
 // Select table body
 var tbody = d3.select("tbody");
@@ -25,8 +25,7 @@ data.forEach((Sighting) => {
 
   // Create event handlers 
 button.on("click", runEnter);
-form.on("submit",runEnter);
-
+form.on("submit", runEnter);
 
 function runEnter() {
 
@@ -48,7 +47,7 @@ function runEnter() {
 
    // var filteredData = tableData.filter(tableData => tableData.datetime === dateinputValue);
     var filteredData = tableData.filter(tableData => tableData.city === cityinputValue && (tableData.datetime === dateinputValue) && (tableData.state === stateinputValue));
-  // filter city and state
+   // filter city and state
     var citystate = tableData.filter(tableData => tableData.city === cityinputValue && (tableData.state === stateinputValue));
     // date and city
     var citydate = tableData.filter(tableData => tableData.city === cityinputValue && (tableData.datetime === dateinputValue));
