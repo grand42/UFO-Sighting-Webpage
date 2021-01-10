@@ -2,7 +2,9 @@
   box-sizing: border-box;
   font-family: Ubuntu, sans-serif;
 }
-
+div.panel-heading {
+  background-color: #6b76a1;
+}
 html,
 body {
   height: 100%;
@@ -70,7 +72,7 @@ select {
   display: block;
   width: 100%;
   padding: 8px;
-  color: #8e979f;
+  color: c;
   outline: none;
 }
 
@@ -82,6 +84,7 @@ select {
 #table-area th:nth-child(2),
 #table-area th:nth-child(6) {
   min-width: 70px;
+	
 }
 
 .loader {
@@ -108,6 +111,7 @@ select {
 .hero h1 {
   margin-top: 200px;
   font-size: 0.1rem;
+  color: #ffffff;
   animation: title 1.2s forwards linear;
 font-family: "Krona One", sans-serif;
   
@@ -115,6 +119,7 @@ font-family: "Krona One", sans-serif;
 
 .hero p {
   font-size: 2rem;
+  color: #ffffff;
   opacity: 0;
   animation: subtitle 1.2s forwards linear;
   animation-delay: 1.2s;
@@ -123,22 +128,22 @@ font-family: "Krona One", sans-serif;
 /* input placeholder color changes */
 .form-control::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #9593ab;
+  color: #151d48;
 }
 
 .form-control::-moz-placeholder {
   /* Firefox 19+ */
-  color: #9593ab;
+  color: #151d48;
 }
 
 .form-control:-ms-input-placeholder {
   /* IE 10+ */
-  color: #9593ab;
+  color: #151d48;
 }
 
 .form-control:-moz-placeholder {
   /* Firefox 18- */
-  color: #9593ab;
+  color: #151d48;
 }
 
 
@@ -157,11 +162,13 @@ font-family: "Krona One", sans-serif;
   #table-area tr td:first-child {
     font-size: 1.8em;
     font-weight: bold;
-    background: #6b76a1;
+    background: #151d48;
+background-color: #151d48;
   }
 
   #table-area tr td:last-child {
     margin-bottom: 20px;
+background-color: #151d48;
   }
 
   #table-area tr td:last-child::after {
@@ -170,16 +177,24 @@ font-family: "Krona One", sans-serif;
     height: 1px;
     margin-top: 20px;
     content: " ";
-    background: #6b76a1;
+    background: #151d48;
+background-color: #151d48;
   }
+
+
+
 
   #table-area td {
     font-size: 1.25em;
+background-color: #151d48;
+    background: #151d48;
   }
 
   #table-area tbody td {
     display: block;
     text-align: center;
+background-color: #151d48;
+    background: #151d48;
   }
 
   #table-area tbody td::before {
@@ -188,6 +203,8 @@ font-family: "Krona One", sans-serif;
     font-weight: bold;
     text-align: center;
     content: attr(data-th);
+background-color: #151d48;
+    background: #151d48;
   }
 
   .hero h1 {
@@ -226,4 +243,16 @@ font-family: "Krona One", sans-serif;
   to {
     opacity: 1;
   }
+}
+3
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+  background-color: #151d48;
+  color: white;
+}
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+  background-color: #151d48;
+  color: white;
 }
