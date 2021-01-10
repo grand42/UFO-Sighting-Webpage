@@ -44,7 +44,7 @@ function runEnter() {
     // Filter the data by the value
     var filteredDate= tableData.filter(tableData => tableData.datetime === dateinputValue);
     var filteredcity= tableData.filter(tableData => tableData.city === cityinputValue);
-    var filteredstate= tableData.filter(tableData => tableData.state === dateinputValue);
+    var filteredstate= tableData.filter(tableData => tableData.state === stateinputValue);
 
    // var filteredData = tableData.filter(tableData => tableData.datetime === dateinputValue);
     var filteredData = tableData.filter(tableData => tableData.city === cityinputValue && (tableData.datetime === dateinputValue) && (tableData.state === stateinputValue));
@@ -53,8 +53,8 @@ function runEnter() {
     // date and city
     var citydate = tableData.filter(tableData => tableData.city === cityinputValue && (tableData.datetime === dateinputValue));
      // date and state
-    var ar statedate = tableData.filter(tableData => tableData.state === stateinputValue && (tableData.datetime === dateinputValue));
-    
+    var statedate = tableData.filter(tableData => tableData.state === stateinputValue && (tableData.datetime === dateinputValue));
+
     // If statements for returning form searches
     if((filteredData.length == 0) && (filteredDate.length ==0) && (filteredcity.length ==0) && (filteredstate.length ==0)) {
         tbody.append("tr").append("td").text("No UFO sightings found");
@@ -86,4 +86,25 @@ function runEnter() {
             });
           });
         }
+        else if (statedate.length !== 0 && filteredcity.length==0){
+          statedate.forEach((Sighting) => {
+              var row = tbody.append("tr");
+              Object.entries(Sighting).forEach(([key, value]) => {
+                var cell = row.append("td");
+                cell.text(value);
+              });
+            });
+          }
+          else {
+          var rendertable=(term)=> {
+            term.forEach((Sighting) => {
+            var row = tbody.append("tr");
+            Object.entries(Sighting).forEach(([key, value]) => {
+              var cell = row.append("td");
+              cell.text(value);
+            });
+          });
+        }; rendertable(filteredDate)||rendertable(filteredcity)||rendertable(filteredstate)}
+
+          
   };
